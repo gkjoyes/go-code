@@ -12,6 +12,7 @@ import (
 var counter int64
 
 func main() {
+
 	// Number of goroutines to use.
 	var grs = 2
 

@@ -19,11 +19,9 @@ func init() {
 }
 
 func main() {
-
-	// Calculate how many levels deep we can create goroutines.
-	maxLevel := int(math.Log2(float64(runtime.NumCPU())))
-
-	fmt.Println("Final Response: ", numCPU(n, 0, maxLevel))
+	fmt.Println("single: ", single(n))
+	fmt.Println("unlimited: ", unlimited(n))
+	fmt.Println("numCPU: ", numCPU(n, 0))
 }
 
 // single uses a single goroutine to perform the merge sort.
@@ -84,7 +82,10 @@ func unlimited(n []int) []int {
 	return merge(l, r)
 }
 
-func numCPU(n []int, lvl, maxLevel int) []int {
+func numCPU(n []int, lvl int) []int {
+
+	// Calculate how many levels deep we can create goroutines.
+	maxLevel := int(math.Log2(float64(runtime.NumCPU())))
 
 	// Once we have a list of one we can begin to merge values.
 	if len(n) <= 1 {
@@ -107,13 +108,13 @@ func numCPU(n []int, lvl, maxLevel int) []int {
 
 		// Sort the left side concurrently.
 		go func() {
-			l = numCPU(n[:i], lvl, maxLevel)
+			l = numCPU(n[:i], lvl)
 			wg.Done()
 		}()
 
 		// Sort the right side concurrently.
 		go func() {
-			r = numCPU(n[i:], lvl, maxLevel)
+			r = numCPU(n[i:], lvl)
 			wg.Done()
 		}()
 
@@ -125,8 +126,8 @@ func numCPU(n []int, lvl, maxLevel int) []int {
 	}
 
 	// Sort the left and right side on this goroutine.
-	l = numCPU(n[:i], lvl, maxLevel)
-	r = numCPU(n[i:], lvl, maxLevel)
+	l = numCPU(n[:i], lvl)
+	r = numCPU(n[i:], lvl)
 
 	// Place things in order and merge ordered lists.
 	return merge(l, r)

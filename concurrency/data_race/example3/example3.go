@@ -30,8 +30,7 @@ func main() {
 		}(i)
 	}
 
-	// Give the goroutines time to run so we can see
-	// the shutdown flag work.
+	// Give the goroutines time to run so we can see the shutdown flag work.
 	time.Sleep(time.Second)
 
 	// Safely flag it is time to shutdown.
@@ -42,8 +41,8 @@ func main() {
 	wg.Wait()
 }
 
-// doWork simulates a goroutine performing work and
-// checking the shutdown flag to terminate early.
+// doWork simulates a goroutine performing work and checking the shutdown flag
+// to terminate early.
 func doWork(id int) {
 	for {
 		fmt.Printf("Doing %d Work\n", id)

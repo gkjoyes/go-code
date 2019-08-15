@@ -14,6 +14,7 @@ func init() {
 }
 
 func main() {
+
 	// wg is used to manage concurrency.
 	var wg sync.WaitGroup
 	wg.Add(2)

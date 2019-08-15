@@ -1,7 +1,6 @@
 // Sample program to show how to create race condition in our program.
-// We don't want to do this.
-
-// go build -race.
+// #Warning : We don't want to do this.
+// #Help	: find data race conditions: go build -race.
 
 package main
 

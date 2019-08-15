@@ -1,5 +1,5 @@
-// Sample program to show how to create goroutines and
-// how the goroutine scheduler behaves with two context.
+// Sample program to show how to create goroutines and how the goroutine scheduler
+// behaves with two context.
 
 package main
 
@@ -15,9 +15,9 @@ func init() {
 }
 
 func main() {
-	// wg is use to wait for the program to finish.
-	// Add a count two, one for each goroutine.
 
+	// wg is use to wait for the program to finish. Add a count two, one for each
+	// goroutine.
 	var wg sync.WaitGroup
 	wg.Add(2)
 

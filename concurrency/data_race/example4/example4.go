@@ -1,5 +1,5 @@
-// Sample program to show how to use a mutex to define critical
-// sections of code that needs synchronous access.
+// Sample program to show how to use a mutex to define critical sections of code
+// that needs synchronous access.
 
 package main
 

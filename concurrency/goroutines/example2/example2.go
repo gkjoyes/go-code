@@ -1,5 +1,5 @@
-// Sample program to show how the goroutine scheduler will
-// time slice goroutines on a single thread.
+// Sample program to show how the goroutine scheduler will time slice goroutines
+// on a single thread.
 
 package main
 

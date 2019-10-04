@@ -45,19 +45,23 @@ Run the pprof tool using including the `memcpu.test` binary
 
 When you do this, you can get profiling information down to the assembly level.
 
-If you want to reduce memory consumption, look at the `-inuse_space` profile collected during normal program operation.
+Options help to see the current status of the heap:
 
 ```sh
     -inuse_space        Allocations live at the time of profile.
     -inuse_objects      Number of bytes allocated at the time of profile.
 ```
 
-If you want to improve execution speed, look at the `-alloc_objects` profile collected after significant running time or at program end.
+Options help to see pressure on heap over time:
 
 ```sh
     -alloc_space        All allocations happened since program start ** default.
     -alloc_objects      Number of objects allocated at the time of profile.
 ```
+
+If you want to reduce memory consumption, look at the `-inuse_space` profile collected during normal program operation.
+
+If you want to improve execution speed, look at the `-alloc_objects` profile collected after significant running time or at program end.
 
 ## CPU Profiling
 

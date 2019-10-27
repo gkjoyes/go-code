@@ -133,7 +133,7 @@ func numCPU(n []int, lvl int) []int {
 	return merge(l, r)
 }
 
-// merge performs the merging to the two lists in proper order.
+// merge performs the merging of the two lists in proper order.
 func merge(l, r []int) []int {
 
 	// Declare the sorted return list with the proper capacity.
